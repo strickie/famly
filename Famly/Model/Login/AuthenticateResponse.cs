@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-
-namespace Famly.Model
+﻿namespace Famly.Model.Login
 {
     public class AuthenticateResponse
     {

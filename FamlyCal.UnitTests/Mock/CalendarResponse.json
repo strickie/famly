@@ -1,0 +1,741 @@
+[
+  {
+    "period": {
+      "from": "2019-09-30T00:00:00+00:00",
+      "from_localdate": "2019-09-30",
+      "to": "2019-10-07T00:00:00+00:00",
+      "to_localdate": "2019-10-07"
+    },
+    "days": [
+      {
+        "day": "2019-09-30T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "b232ec30-b372-406f-8284-a6f6dad25c44"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "8:07: Bj\u00f8rk checkede ind i Humlebierne",
+            "subtitle": "",
+            "from": "2019-09-30T06:07:56+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_IN",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "b232ec30-b372-406f-8284-a6f6dad25c44"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "15:42: Bj\u00f8rk checkede ud af Humlebierne",
+            "subtitle": "",
+            "from": "2019-09-30T13:42:50+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_OUT",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "b232ec30-b372-406f-8284-a6f6dad25c44"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk hentes af Rickie",
+            "subtitle": "B\u00f8rnehuset ved Damhuss\u00f8en",
+            "from": "2019-09-30T13:45:00+00:00",
+            "to": null,
+            "embed": {
+              "timezone": "Europe\/Copenhagen",
+              "child": {
+                "childId": "b888655f-d161-4536-92c3-de982e3b854d",
+                "name": "Bj\u00f8rk"
+              },
+              "canEdit": true,
+              "hideTime": false
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-09-30"
+      },
+      {
+        "day": "2019-10-01T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "9bd3011a-c4fc-48ea-8866-c45113c855a2"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "8:07: Bj\u00f8rk checkede ind i Humlebierne",
+            "subtitle": "",
+            "from": "2019-10-01T06:07:16+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_IN",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "9bd3011a-c4fc-48ea-8866-c45113c855a2"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "15:01: Bj\u00f8rk checkede ud af Humlebierne",
+            "subtitle": "",
+            "from": "2019-10-01T13:01:19+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_OUT",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "9bd3011a-c4fc-48ea-8866-c45113c855a2"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk hentes af Line",
+            "subtitle": "B\u00f8rnehuset ved Damhuss\u00f8en",
+            "from": "2019-10-01T13:45:00+00:00",
+            "to": null,
+            "embed": {
+              "timezone": "Europe\/Copenhagen",
+              "child": {
+                "childId": "b888655f-d161-4536-92c3-de982e3b854d",
+                "name": "Bj\u00f8rk"
+              },
+              "canEdit": true,
+              "hideTime": false
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-01"
+      },
+      {
+        "day": "2019-10-02T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildLeave",
+              "id": "df1f5c3b-07e6-4cf4-8a8a-a919d3c182fc"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk var syg",
+            "subtitle": "",
+            "from": null,
+            "to": null,
+            "embed": {
+              "leaveType": "SICK",
+              "vacationId": "",
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-02"
+      },
+      {
+        "day": "2019-10-03T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "fc959559-069b-4105-a965-c57b2cd61d48"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "7:47: Bj\u00f8rk checkede ind i Humlebierne",
+            "subtitle": "",
+            "from": "2019-10-03T05:47:41+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_IN",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "fc959559-069b-4105-a965-c57b2cd61d48"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk hentes af Line",
+            "subtitle": "B\u00f8rnehuset ved Damhuss\u00f8en",
+            "from": "2019-10-03T13:00:00+00:00",
+            "to": null,
+            "embed": {
+              "timezone": "Europe\/Copenhagen",
+              "child": {
+                "childId": "b888655f-d161-4536-92c3-de982e3b854d",
+                "name": "Bj\u00f8rk"
+              },
+              "canEdit": true,
+              "hideTime": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "fc959559-069b-4105-a965-c57b2cd61d48"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "15:12: Bj\u00f8rk checkede ud af Humlebierne",
+            "subtitle": "",
+            "from": "2019-10-03T13:12:52+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_OUT",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:Event",
+              "id": "897a8a51-6adf-4e59-8dc8-a1c8a2573368"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "For\u00e6ldrem\u00f8de",
+            "subtitle": "B\u00f8rnehuset ved Damhuss\u00f8en (Personale), B\u00f8rnehuset ved Damhuss\u00f8en (B\u00f8rn)",
+            "from": "2019-10-03T15:00:00+00:00",
+            "to": "2019-10-03T17:00:00+00:00",
+            "embed": {
+              "rsvp": 2,
+              "deadline": 3,
+              "timezone": "Europe\/Copenhagen",
+              "attending": true,
+              "unanswered": null,
+              "noChildren": null,
+              "noAdults": null,
+              "requireRsvp": true
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-03"
+      },
+      {
+        "day": "2019-10-04T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "2d305d15-72bd-48de-829d-77816d3a7ed3"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "8:07: Bj\u00f8rk checkede ind i Humlebierne",
+            "subtitle": "",
+            "from": "2019-10-04T06:07:09+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_IN",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "2d305d15-72bd-48de-829d-77816d3a7ed3"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "15:16: Bj\u00f8rk checkede ud af Humlebierne",
+            "subtitle": "",
+            "from": "2019-10-04T13:16:45+00:00",
+            "to": null,
+            "embed": {
+              "type": "CHECK_OUT",
+              "timezone": "Europe\/Copenhagen",
+              "canEdit": false
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildCheckin",
+              "id": "2d305d15-72bd-48de-829d-77816d3a7ed3"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk hentes af Line",
+            "subtitle": "B\u00f8rnehuset ved Damhuss\u00f8en",
+            "from": "2019-10-04T13:45:00+00:00",
+            "to": null,
+            "embed": {
+              "timezone": "Europe\/Copenhagen",
+              "child": {
+                "childId": "b888655f-d161-4536-92c3-de982e3b854d",
+                "name": "Bj\u00f8rk"
+              },
+              "canEdit": true,
+              "hideTime": false
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-04"
+      },
+      {
+        "day": "2019-10-05T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-05"
+      },
+      {
+        "day": "2019-10-06T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-06"
+      }
+    ]
+  },
+  {
+    "period": {
+      "from": "2019-10-07T00:00:00+00:00",
+      "from_localdate": "2019-10-07",
+      "to": "2019-10-14T00:00:00+00:00",
+      "to_localdate": "2019-10-14"
+    },
+    "days": [
+      {
+        "day": "2019-10-07T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-07"
+      },
+      {
+        "day": "2019-10-08T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-08"
+      },
+      {
+        "day": "2019-10-09T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-09"
+      },
+      {
+        "day": "2019-10-10T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-10"
+      },
+      {
+        "day": "2019-10-11T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-11"
+      },
+      {
+        "day": "2019-10-12T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-12"
+      },
+      {
+        "day": "2019-10-13T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-13"
+      }
+    ]
+  },
+  {
+    "period": {
+      "from": "2019-10-14T00:00:00+00:00",
+      "from_localdate": "2019-10-14",
+      "to": "2019-10-21T00:00:00+00:00",
+      "to_localdate": "2019-10-21"
+    },
+    "days": [
+      {
+        "day": "2019-10-14T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildLeave",
+              "id": "eb1503ee-79b0-405d-9d77-e5db7b86385b"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk holder fri",
+            "subtitle": "",
+            "from": null,
+            "to": null,
+            "embed": {
+              "leaveType": "VACATION",
+              "vacationId": "2526df07-7997-4dd9-8f2c-002056128fcf",
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-14"
+      },
+      {
+        "day": "2019-10-15T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildLeave",
+              "id": "d96cd216-1abb-4b35-9d16-be9a39a43b3f"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk holder fri",
+            "subtitle": "",
+            "from": null,
+            "to": null,
+            "embed": {
+              "leaveType": "VACATION",
+              "vacationId": "2526df07-7997-4dd9-8f2c-002056128fcf",
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-15"
+      },
+      {
+        "day": "2019-10-16T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildLeave",
+              "id": "a2e86e62-5141-41ec-b9b2-58e0a23550e8"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk holder fri",
+            "subtitle": "",
+            "from": null,
+            "to": null,
+            "embed": {
+              "leaveType": "VACATION",
+              "vacationId": "2526df07-7997-4dd9-8f2c-002056128fcf",
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-16"
+      },
+      {
+        "day": "2019-10-17T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildLeave",
+              "id": "c5ad26aa-19a2-498d-b36c-ec8b6a08d57b"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk holder fri",
+            "subtitle": "",
+            "from": null,
+            "to": null,
+            "embed": {
+              "leaveType": "VACATION",
+              "vacationId": "2526df07-7997-4dd9-8f2c-002056128fcf",
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-17"
+      },
+      {
+        "day": "2019-10-18T00:00:00+00:00",
+        "events": [
+          {
+            "originator": {
+              "type": "Famly.Daycare:ChildLeave",
+              "id": "2521a65c-2242-4185-b239-6a99827a30b3"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Bj\u00f8rk holder fri",
+            "subtitle": "",
+            "from": null,
+            "to": null,
+            "embed": {
+              "leaveType": "VACATION",
+              "vacationId": "2526df07-7997-4dd9-8f2c-002056128fcf",
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:ClosingDay",
+              "id": "8324c7bb-167b-488d-9a52-caa9b4ba74ba"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "B\u00f8rnehuset ved Damhuss\u00f8en er lukket",
+            "subtitle": "Personalets kompetencedag. Ved pasningsbehov skal I henvende jer p\u00e5 kontoret.",
+            "from": null,
+            "to": null,
+            "embed": {
+              "dayType": 0,
+              "canDelete": false,
+              "timezone": "Europe\/Copenhagen"
+            },
+            "behaviors": [
+
+            ]
+          },
+          {
+            "originator": {
+              "type": "Famly.Daycare:Event",
+              "id": "22c542d8-a6b8-4e36-a99f-4105e3e66351"
+            },
+            "invitees": [
+              {
+                "type": "Famly.Daycare:Child",
+                "id": "b888655f-d161-4536-92c3-de982e3b854d",
+                "title": "Bj\u00f8rk",
+                "image": ""
+              }
+            ],
+            "title": "Personalets kompetence dag",
+            "subtitle": "B\u00f8rnehuset ved Damhuss\u00f8en (Personale), B\u00f8rnehuset ved Damhuss\u00f8en (B\u00f8rn)",
+            "from": "2019-10-18T05:00:00+00:00",
+            "to": "2019-10-18T14:00:00+00:00",
+            "embed": {
+              "rsvp": 0,
+              "deadline": 0,
+              "timezone": "Europe\/Copenhagen",
+              "attending": null,
+              "unanswered": null,
+              "noChildren": null,
+              "noAdults": null,
+              "requireRsvp": false
+            },
+            "behaviors": [
+
+            ]
+          }
+        ],
+        "day_localdate": "2019-10-18"
+      },
+      {
+        "day": "2019-10-19T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-19"
+      },
+      {
+        "day": "2019-10-20T00:00:00+00:00",
+        "events": [
+
+        ],
+        "day_localdate": "2019-10-20"
+      }
+    ]
+  }
+]

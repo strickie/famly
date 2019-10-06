@@ -41,12 +41,15 @@ namespace FamlyCal.OutputFormatters
                 FormatVCalendar(buffer, context.Object as Calendar);
             }
 
+            //buffer.Replace("\r", "\")
+
             await response.WriteAsync(buffer.ToString());
         }
 
         private void FormatVCalendar(StringBuilder buffer, Calendar calendar)
         {
-            buffer.AppendLine("BEGIN:VCALENDAR");
+            buffer.Append("BEGIN:VCALENDAR\r\n");
+            buffer.AppendLine($"PRODID:{calendar.ProductIdentifier}");
             buffer.AppendLine("VERSION:2.0");
             buffer.AppendLine("CALSCALE:GREGORIAN");
             buffer.AppendLine("METHOD:PUBLISH");
@@ -89,10 +92,18 @@ namespace FamlyCal.OutputFormatters
             buffer.AppendLine("BEGIN:VEVENT");
 
             // 20140719T063000Z
-            buffer.AppendLine($"DTSTART;VALUE=DATE:{ToICalDate(ev.Start)}");
-            buffer.AppendLine($"DTEND;VALUE=DATE:{ToICalDate(ev.End)}");
+            if (ev.Start.HasValue)
+            {
+                buffer.AppendLine($"DTSTART;VALUE=DATE:{ToICalDate(ev.Start.Value)}");
+            }
+
+            if (ev.End.HasValue)
+            {
+                buffer.AppendLine($"DTEND;VALUE=DATE:{ToICalDate(ev.End.Value)}");
+            }
+
             buffer.AppendLine("DTSTAMP:20191006T172925Z");
-            buffer.AppendLine("UID:4frf7tg4omssvfg98kd9fmn09h@google.com");
+            buffer.AppendLine($"UID:{Guid.NewGuid()}");
             //buffer.AppendLine("CREATED:20191003T065401Z");
             buffer.AppendLine($"DESCRIPTION:{ToICalString(ev.Description)}");
             buffer.AppendLine("LAST-MODIFIED:20191003T065401Z");
@@ -108,7 +119,7 @@ namespace FamlyCal.OutputFormatters
         private string ToICalDate(DateTime date)
         {
             //string DateFormat = "yyyyMMddTHHmmssZ";
-            string dateFormat = "yyyyMMddTHHmmssZ";
+            string dateFormat = "yyyyMMdd";
 
             return date.ToUniversalTime().ToString(dateFormat);
         }

@@ -21,7 +21,7 @@ namespace FamlyCal.Controllers
 
         // GET calendar
         [HttpGet]
-        [Produces("text/calendar", new[] {"application/json"})]
+        [Produces("text/calendar")/*, new[] {"application/json"})*/]
         public async Task<ActionResult<Calendar>> GetAsync([FromQuery] Credentials credentials)
         {
             if (!ModelState.IsValid)
