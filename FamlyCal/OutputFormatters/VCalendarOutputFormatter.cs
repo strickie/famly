@@ -4,14 +4,18 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace FamlyCal.OutputFormatters
 {
     public class VCalendarOutputFormatter : TextOutputFormatter
     {
+        private const int VCalMaxLineLength = 75;
+        private const string CRLF = "\r\n";
+        private readonly TimeSpan PublishedTTL = new TimeSpan(days: 0, hours: 1, minutes: 0, seconds: 0);
+
         public VCalendarOutputFormatter()
         {
             SupportedMediaTypes.Add(MediaTypeHeaderValue.Parse("text/calendar"));
@@ -40,9 +44,7 @@ namespace FamlyCal.OutputFormatters
             {
                 FormatVCalendar(buffer, context.Object as Calendar);
             }
-
-            //buffer.Replace("\r", "\")
-
+            
             await response.WriteAsync(buffer.ToString());
         }
 
@@ -53,9 +55,10 @@ namespace FamlyCal.OutputFormatters
             buffer.AppendLine("VERSION:2.0");
             buffer.AppendLine("CALSCALE:GREGORIAN");
             buffer.AppendLine("METHOD:PUBLISH");
-            buffer.AppendLine("X-WR-CALNAME:Famly kalender");
+            buffer.AppendLine("X-WR-CALNAME:B\u00f8rnehuset ved Damhuss\u00f8en");
+            buffer.AppendLine("X-WR-CALDESC:B\u00f8rnehuset ved Damhuss\u00f8en");
             buffer.AppendLine("X-WR-TIMEZONE:Europe/Copenhagen");
-            buffer.AppendLine("X-PUBLISHED-TTL:PT1H");
+            buffer.AppendLine($"X-PUBLISHED-TTL:{ToICalTimeSpan(PublishedTTL)}");
 
             buffer.AppendLine("BEGIN:VTIMEZONE");
             buffer.AppendLine("TZID:Europe/Copenhagen");
@@ -91,52 +94,117 @@ namespace FamlyCal.OutputFormatters
         {
             buffer.AppendLine("BEGIN:VEVENT");
 
-            // 20140719T063000Z
             if (ev.Start.HasValue)
             {
-                buffer.AppendLine($"DTSTART;VALUE=DATE:{ToICalDate(ev.Start.Value)}");
+                buffer.AppendLine(ToICalDate("DTSTART", ev.Start.Value));
             }
 
             if (ev.End.HasValue)
             {
-                buffer.AppendLine($"DTEND;VALUE=DATE:{ToICalDate(ev.End.Value)}");
+                buffer.AppendLine(ToICalDate("DTEND", ev.End.Value));
             }
 
-            buffer.AppendLine("DTSTAMP:20191006T172925Z");
+            //buffer.AppendLine("DTSTAMP:20191006T172925Z");
             buffer.AppendLine($"UID:{Guid.NewGuid()}");
             //buffer.AppendLine("CREATED:20191003T065401Z");
-            buffer.AppendLine($"DESCRIPTION:{ToICalString(ev.Description)}");
-            buffer.AppendLine("LAST-MODIFIED:20191003T065401Z");
-            buffer.AppendLine("LOCATION:");
-            buffer.AppendLine("SEQUENCE:0");
+            buffer.Append(FoldLine($"DESCRIPTION:{ev.Description}"));
+            //buffer.AppendLine("LAST-MODIFIED:20191003T065401Z");
+            //buffer.AppendLine("LOCATION:");
+            //buffer.AppendLine("SEQUENCE:0");
             buffer.AppendLine("STATUS:CONFIRMED");
-            buffer.AppendLine($"SUMMARY:{ToICalString(ev.Summary)}");
+            buffer.Append(FoldLine($"SUMMARY:{ev.Summary}"));
             buffer.AppendLine("TRANSP:TRANSPARENT");
+
+            // Alarm
+            if (ev.Alarm.HasValue)
+            {
+                buffer.AppendLine("BEGIN:VALARM");
+                buffer.AppendLine("ACTION:DISPLAY");
+                buffer.AppendLine("DESCRIPTION:P\u00e5mindelse");
+                buffer.AppendLine($"TRIGGER:-{ToICalTimeSpan(ev.Alarm.Value)}");
+                buffer.AppendLine("END:VALARM");
+            }
 
             buffer.AppendLine("END:VEVENT");
         }
 
-        private string ToICalDate(DateTime date)
+        private string FoldLine(string line)
         {
-            //string DateFormat = "yyyyMMddTHHmmssZ";
+            StringBuilder output = new StringBuilder();
+
+            if (string.IsNullOrWhiteSpace(line))
+            {
+                return line;
+            }
+
+            string input = EscapeStrings(line);
+
+            if (input.Length > VCalMaxLineLength)
+            {
+                output.Append($"{input.Substring(0, 75)}{CRLF}");
+                input = input.Remove(0, 75);
+
+                while (input.Length > 74)
+                {
+                    output.Append($" {input.Substring(0, 74)}{CRLF}");
+                    input = input.Remove(0, 74);
+                }
+
+                output.Append($" {input}{CRLF}");
+
+                return output.ToString();
+            }
+
+            return $"{input}{CRLF}";
+        }
+
+        public static string ReplaceText(string value, IList<(string from, string to)> pairs)
+        {
+            foreach (var pair in pairs)
+            {
+                value = value.Replace(pair.from, pair.to);
+            }
+
+            return value;
+        }
+        public static string EscapeStrings(string value)
+        {
+            return ReplaceText(value, new List<(string, string)>
+            {
+                ("\\", "\\\\"),
+                (";",  @"\;"),
+                (",",  @"\,"),
+                ("\r\n",  @"\n"),
+                ("\n",  @"\n"),
+            });
+        }
+
+        private string ToICalTimeSpan(TimeSpan timeSpan)
+        {
+            return XmlConvert.ToString(timeSpan);
+        }
+
+        private string ToICalDate(string type, DateTime date)
+        {
+            string dateTimeFormat = "yyyyMMddTHHmmssZ";
             string dateFormat = "yyyyMMdd";
 
-            return date.ToUniversalTime().ToString(dateFormat);
-        }
+            string format = string.Empty;
+            string valueType = string.Empty;
 
-        private string ToICalString(string str)
-        {
-            return str.Replace(",", "\\,");
+            // No time portion
+            if (date.Date == date)
+            {
+                valueType = "DATE";
+                format = dateFormat;
+            }
+            else
+            {
+                valueType = "DATE-TIME";
+                format = dateTimeFormat;
+            }
+
+            return $"{type};VALUE={valueType}:{date.ToUniversalTime().ToString(format)}";
         }
     }
-
-
 }
-
-/*
- * buffer.AppendLine("VERSION:2.1");
-            buffer.AppendFormat($"N:{contact.LastName};{contact.FirstName}\r\n");
-            buffer.AppendFormat($"FN:{contact.FirstName} {contact.LastName}\r\n");
-            buffer.AppendFormat($"UID:{contact.ID}\r\n");
-            
- */

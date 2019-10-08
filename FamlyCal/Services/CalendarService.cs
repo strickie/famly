@@ -16,13 +16,24 @@ namespace FamlyCal.Services
             _client = client;
         }
 
-        public async Task<Calendar> GetCalendar(string email, string password)
+        public async Task<Calendar> GetCalendar(string email, string password, TimeSpan? alarm = null)
         {
-            var accessToken = await _client.Login(email, password);
+            await _client.Login(email, password);
 
             var calendar = await _client.GetCalendar(new DateTime(2019, 1, 1), FamlyClient.CalendarUnit.MONTH, 12);
 
-            var cal = MapFamlyCalToCalendar(calendar);
+            var cal = MapFamlyCalToCalendar(calendar, alarm);
+
+            return cal;
+        }
+
+        public async Task<Calendar> GetCalendar(Guid accessToken, TimeSpan? alarm = null)
+        {
+            _client.AccessToken = accessToken.ToString();
+
+            var calendar = await _client.GetCalendar(new DateTime(2019, 1, 1), FamlyClient.CalendarUnit.MONTH, 12);
+
+            var cal = MapFamlyCalToCalendar(calendar, alarm);
 
             return cal;
         }
@@ -52,7 +63,7 @@ namespace FamlyCal.Services
                         },
              */
 
-        private Calendar MapFamlyCalToCalendar(CalendarResponse res)
+        private Calendar MapFamlyCalToCalendar(CalendarResponse res, TimeSpan? alarm)
         {
             Calendar calendar = new Calendar
             {
@@ -61,20 +72,23 @@ namespace FamlyCal.Services
 
             string[] ignoreTypes = new[] { "CHECK_IN", "CHECK_OUT" };
             string[] ignoreLeaveTypes = new[] { "VACATION", "SICK" };
+            string[] ignoreOriginators = new[] { "Famly.Daycare:ChildCheckin" };
 
             foreach (var period in res.Periodes)
             {
                 foreach (var day in period.Days)
                 {
                     foreach (var ev in day.Events.Where(e => !ignoreTypes.Contains(e.Descriptor.Type) &&
-                                                             !ignoreLeaveTypes.Contains(e.Descriptor.LeavyType)))
+                                                             !ignoreLeaveTypes.Contains(e.Descriptor.LeaveType) &&
+                                                             !ignoreOriginators.Contains(e.Originator.Type)))
                     {
                         calendar.Events.Add(new Model.Event
                         {
                             Summary = ev.Title,
                             Description = ev.SubTitle,
-                            Start = ev.From??day.Date,
-                            End = ev.To??day.Date
+                            Start = ev.From ?? day.Date,
+                            End = ev.To ?? day.Date,
+                            Alarm = alarm
                         });
                     }
                 }

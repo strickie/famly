@@ -14,5 +14,7 @@ namespace FamlyCal.Model
         public string Summary { get; set; }
 
         public string Description { get; set; }
+
+        public TimeSpan? Alarm { get; set; }
     }
 }

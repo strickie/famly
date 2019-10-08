@@ -11,7 +11,15 @@ namespace FamlyCal.Clients
 {
     public class FamlyClient : IFamlyClient
     {
-        public HttpClient Client { get; }
+        private HttpClient Client { get; }
+
+        public string AccessToken
+        {
+            set
+            {
+                Client.DefaultRequestHeaders.Add("x-famly-accesstoken", value);
+            }
+        }
 
         public FamlyClient(HttpClient client)
         {
@@ -19,7 +27,7 @@ namespace FamlyCal.Clients
             Client = client;
         }
 
-        public async Task<string> Login(string email, string password)
+        public async Task Login(string email, string password)
         {
             AuthenticateRequest req = new AuthenticateRequest
             {
@@ -34,12 +42,12 @@ namespace FamlyCal.Clients
                 AuthenticateResponse res = await response.Content.ReadAsAsync<AuthenticateResponse>();
                 Console.WriteLine(res.accessToken);
 
-                Client.DefaultRequestHeaders.Add("x-famly-accesstoken", res.accessToken);
-
-                return res.accessToken;
+                AccessToken = res.accessToken;
             }
-
-            return null;
+            else
+            {
+                throw new LoginException($"{response.StatusCode} - {response.ReasonPhrase}");
+            }            
         }
 
         public enum CalendarUnit

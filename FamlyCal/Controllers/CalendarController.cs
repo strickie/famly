@@ -22,14 +22,29 @@ namespace FamlyCal.Controllers
         // GET calendar
         [HttpGet]
         [Produces("text/calendar")/*, new[] {"application/json"})*/]
-        public async Task<ActionResult<Calendar>> GetAsync([FromQuery] Credentials credentials)
+        public async Task<ActionResult<Calendar>> GetByCredentialsAsync([FromQuery] Credentials credentials, TimeSpan? alarm = null)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Calendar calendar = await _service.GetCalendar(credentials.Email, credentials.Password);
+            Calendar calendar = await _service.GetCalendar(credentials.Email, credentials.Password, alarm);
+
+            return calendar;
+        }
+
+        // GET calendar
+        [HttpGet("{accessToken}")]
+        [Produces("text/calendar")]
+        public async Task<ActionResult<Calendar>> GetByAccessTokenAsync(Guid accessToken, TimeSpan? alarm = null)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Calendar calendar = await _service.GetCalendar(accessToken);
 
             return calendar;
         }

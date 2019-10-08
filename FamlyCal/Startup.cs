@@ -11,9 +11,12 @@ namespace FamlyCal
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IHostingEnvironment Environment { get; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -21,6 +24,15 @@ namespace FamlyCal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (Environment.IsProduction())
+            {
+                services.AddHttpsRedirection(options => options.HttpsPort = 443);
+            }
+            else
+            {
+                services.AddHttpsRedirection(options => options.HttpsPort = 5001);
+            }
+
             services
                 .AddMvc(options =>
                 {
@@ -34,9 +46,9 @@ namespace FamlyCal
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }

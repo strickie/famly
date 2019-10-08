@@ -17,5 +17,8 @@ namespace Famly.Model.Calendar
 
         [JsonProperty("embed")]
         public EventDescriptor Descriptor { get; set; }
+
+        [JsonProperty("originator")]
+        public EventOriginator Originator { get; set; }
     }
 }

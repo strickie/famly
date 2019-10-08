@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Famly.Model.Calendar
 {
-    public class EventDescriptor
+    public class EventOriginator
     {
-        public string LeaveType { get; set; }
-
         public String Type { get; set; }
     }
 }
